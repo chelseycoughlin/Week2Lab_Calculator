@@ -15,9 +15,10 @@
     <body>
             <input type="text" name="one" value="${numberone}"><br>
             <input type="text" name="two" value="${numbertwo}"><br>
-            <input type="text" name="add" value="${add}">
-            <input type="text" name="sub" value="${subtract}">
-            <input type="text" name="multi" value="${multiply}">
+            <input type="button" name="add" value="+">
+            <input type="button" name="sub" value="-">
+            <input type="button" name="multi" value="x">
+            <input type="button" name="divide" value="%">
         
         <div>
             ${message}
