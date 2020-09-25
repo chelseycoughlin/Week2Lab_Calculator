@@ -16,19 +16,31 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
+        String ageCalc = request.getParameter("age");
         
-        request.setAttribute("fname", firstname);
-        request.setAttribute("lname", lastname);
-        
-        if (firstname == null || firstname.equals("") ||
-                lastname == null || lastname.equals("")) {
-            request.setAttribute("message", "Please enter both values.");
-            getServletContext().getRequestDispatcher("/WEB-INF/helloWorldJSP.jsp").forward(request, response);
-            return;
+                if(ageCalc == null || ageCalc == "")
+        {
+            
+            request.setAttribute("message", "Please enter a value.");
+            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
         }
-
-        getServletContext().getRequestDispatcher("/WEB-INF/sayHello.jsp").forward(request, response);   
+   
+                else if (request.getParameter("calcAge") != null)
+        {
+            if(ageCalc != null || ageCalc != ""){
+                try
+                {
+                int ageint = Integer.parseInt(ageCalc);
+                ageint +=1;
+                request.setAttribute("message", "You will be " + ageint + " next year!");
+                getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+                return;
+                }
+                catch(NumberFormatException e){
+                        request.setAttribute("messagetwo", "Invalid input. Try again."); 
+                        }
+               } 
+        }
+           getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
     }
 }

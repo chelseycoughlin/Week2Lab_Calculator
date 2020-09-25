@@ -11,14 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Age Calculator</title>
     </head>
-    <form method="post" action="age">
-    <body>
+        <body>
         <h1>Age Calculator</h1>
-            Enter your age: <input type="text" name="age" value="${agecalc}"><br>
-            <input type="submit" value="Age next birthday">
+    <form method="post" action="age">
+            Enter your age: <input type="text" name="age"><br>
+            <input type="submit" value="Age next birthday" name="calcAge">
         <div>
-            <p>Result: </p>${message}
+            <p>Age: </p>${message}
         </div>
-    </body>
     </form>
+       </body>
+       <a href="arithmetic">Arithmetic Calculator</a> 
 </html>
